@@ -6,12 +6,9 @@ python:
 
 env:
   matrix:
-    - FLASK=0.8
-    - FLASK=0.9
+    - FLASK=0.8     PUSHER="<1.0"
+    - FLASK=0.9     PUSHER=">=1.0"
     - FLASK=0.10.1
-  matrix:
-    - PUSHER="<1.0"
-    - PUSHER=">=1.0"
 
 install:
   - pip install -q Flask==$FLASK pusher$PUSHER
