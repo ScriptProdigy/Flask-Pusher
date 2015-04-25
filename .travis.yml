@@ -5,12 +5,16 @@ python:
   - "pypy"
 
 env:
-  - FLASK=0.8
-  - FLASK=0.9
-  - FLASK=0.10.1
+  matrix:
+    - FLASK=0.8
+    - FLASK=0.9
+    - FLASK=0.10.1
+  matrix:
+    - PUSHER="<1.0"
+    - PUSHER=">=1.0"
 
 install:
-  - pip install -q Flask==$FLASK
+  - pip install -q Flask==$FLASK pusher$PUSHER
   - pip install unittest2 coverage coveralls
   - python setup.py install
 
